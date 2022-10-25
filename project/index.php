@@ -4,46 +4,48 @@
 
     echo $pagina;
 
-    $distanciaTotal = 384.400;
+    date_default_timezone_set('America/Sao_Paulo');
+    $dataAtual = date('d-m-y h:i:s');
 
-    if (isset($_REQUEST['quantidade-combustivel']) && isset($_REQUEST['quantidade-consumida'])) {
-        $quantidadeCombustivel = $_REQUEST['quantidade-combustivel'];
-        $quantidadeConsumida = $_REQUEST['quantidade-consumida'];
-        if ($quantidadeCombustivel != '' && $quantidadeConsumida != '') {
-            $quantidadeCombustivelInicial = $quantidadeCombustivel;
-            $quantidadeConsumidaInicial = $quantidadeConsumida;
-            $quantidadeArray = [];
+    if (isset($_REQUEST['val_total_da_venda']) && isset($_REQUEST['quantidade_parcelas']) && isset($_REQUEST['quantidade_dias'])) {
+        $valorTotalVenda = $_REQUEST['val_total_da_venda'];
+        $quantidadeParcelas = $_REQUEST['quantidade_parcelas'];
+        $quantidadeDias = $_REQUEST['quantidade_dias'];
 
-            while ($distanciaTotal > 0 && $quantidadeCombustivel > 0) {
-                $distanciaTotal -= 15.376;
-                $quantidadeCombustivel -= $quantidadeConsumida;
-                $quantidadeArray[] = $quantidadeCombustivel;
-            }
-        
-            // echo($quantidadeArray);
-            // print_r($quantidadeArray);
+        if ($valorTotalVenda != '' && $quantidadeParcelas != '' && $quantidadeDias != '') {
+            $vencimentoParcelas = [];
+            $valorParcelas = 0;
 
-            echo('<br>');
-            echo('<div class="text-center">');
-            echo('<p>Quantidade de combustível: <b>' . $quantidadeCombustivelInicial . '</b></p>');
-            echo('<p>Quantidade consumida a cada 15.376 Km:  <b>' . $quantidadeConsumidaInicial . '</b></p>');
-            echo('<hr>');
-            echo('<br>');
-
-            for ($i = 0; $i < count($quantidadeArray); $i++) {
-                if ($quantidadeArray[$i] > 0) {
-                    echo('Quantidade de combustível restante no tanque: <b>' . $quantidadeArray[$i] . '</b><br>');
-                }
+            if ($valorTotalVenda > 0 && $quantidadeParcelas > 0) {
+                $valorParcelas = floatval($valorTotalVenda/$quantidadeParcelas);
             }
 
-            if (count($quantidadeArray) < 25) {
-                echo('<br><p><b>O foguete não alcançou seu objetivo! Não chegou a lua por falta de combustível.</b></p>');
-            } else {
-                echo('<br><p><b>O foguete chegou a lua!</b></p>');
-            }
-            echo('</div>');
+            $valorParcelas = number_format((float)$valorParcelas, 2, '.', '');
+
+            echo($valorTotalVenda);
+            echo($quantidadeParcelas);
+            echo($quantidadeDias);
+            echo('valorParcelas: ' . $valorParcelas . '<br>');
+            echo($valorParcelas . '<br>');
+            echo('data atual: ' . $dataAtual . '<br>');
+
+            // echo('<br>');
+            // echo('<div class="text-center">');
+            // echo('<p>Quantidade de combustível: <b>' . $quantidadeCombustivelInicial . '</b></p>');
+            // echo('<p>Quantidade consumida a cada 15.376 Km:  <b>' . $quantidadeConsumidaInicial . '</b></p>');
+            // echo('<hr>');
+            // echo('<br>');
+
+            // for ($i = 0; $i < count($quantidadeArray); $i++) {
+            //     if ($quantidadeArray[$i] > 0) {
+            //         echo('Quantidade de combustível restante no tanque: <b>' . $quantidadeArray[$i] . '</b><br>');
+            //     }
+            // }
+
+            // echo('</div>');
+
         } else {
-            echo('<br><div class="text-center">Por favor, preencha os dois campos!</div>');
+            echo('<br><div class="text-center">Por favor, preencha os campos!</div>');
         }
 
     }
