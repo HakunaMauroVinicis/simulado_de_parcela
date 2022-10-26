@@ -1,0 +1,31 @@
+body{
+    background-color: rgb(24, 26, 27);
+    color: #fff;
+    overflow-x: hidden;
+} 
+.configdiv {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.text{
+    color: #fff;
+}
+hr{
+    border:none;
+    height: 50px;
+    margin-top: 0;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 20px 20px -20px #157fc5;
+    margin: -50px auto 10px; 
+}
+.border{
+    padding: 50px;
+    border: 30px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    box-shadow: -3px 3px 50px #157fc5;
+}

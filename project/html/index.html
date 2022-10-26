@@ -8,36 +8,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/center.css">
 </head>
 
 <body> 
 
-    <div class="d-flex justify-content-center mt-5">
-        <form name="formulario" method="POST" action="index.php">
+    <div class="d-flex justify-content-center configdiv">
+        <form name="formulario" method="POST" action="index.php" class="border">
             <div class="mb-3">
-                <label for="val_total_da_venda" class="form-label w-100 p-1">Valor Total Da Venda:</label>
+                <label for="val_total_da_venda" class="form-label w-100 p-1 text">Valor Total Da Venda:</label>
                 <input type="number" class="form-control w-100 p-1" id="val_total_da_venda"
                     name="val_total_da_venda">
             </div>
             <div class="mb-3">
-                <label for="quantidade_parcelas" class="form-label w-100 p-1">Quantidade De Parcelas:</label>
+                <label for="quantidade_parcelas" class="form-label w-100 p-1 text">Quantidade De Parcelas:</label>
                 <input type="number" class="form-control w-100 p-1" id="quantidade_parcelas"
                     name="quantidade_parcelas">
             </div>
             <div class="mb-3">
-                <label for="quantidade_dias" class="form-label w-100 p-1">Quantidade De dias:</label>
+                <label for="quantidade_dias" class="form-label w-100 p-1 text">Quantidade De dias:</label>
                 <input type="number" class="form-control w-100 p-1" id="quantidade_dias"
                     name="quantidade_dias">
             </div>
             <div class="w-100 text-center">
-                <button type="submit" class="btn btn-danger">Calcular!!</button>
+                <button type="submit" class="btn btn-primary">Calcular!!</button>
             </div>
         </form>
     </div>
+    <div class="text-center"></div>
 
-    <div class="text-center">
-
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
